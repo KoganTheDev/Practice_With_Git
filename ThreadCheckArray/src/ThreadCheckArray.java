@@ -73,6 +73,7 @@ public class ThreadCheckArray implements Runnable
 			synchronized (sd) 
 			{
 				sd.setWinArray(winArray);
+				sd.setWinningThread(Thread.currentThread().getName());
 			}	
 		}
 	}

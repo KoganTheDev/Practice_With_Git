@@ -38,21 +38,16 @@ public class TestThreadCheckArray {
 			{
 				e.printStackTrace();
 			}
+			
 			if (!sd.getFlag())
 			{
 				System.out.println("Sorry");
 				return;
 			}
 			else {
-				
-				if(sd.getWinningThread().equals(thread1.getName())) {
-					System.out.println("thread1 wins");
-				}
-				
-				else {
-					System.out.println("thread2 wins");
-				}
+				System.out.println(sd.getWinningThread());
 			}
+			
 			Instant end = Instant.now(); // Take timestamp when finished running.
 			Duration timeElapsed = Duration.between(start, end); // Calculate time difference.
 			System.out.println("Time taken to calculate the result " + timeElapsed.toMillis() + " miliseconds.");

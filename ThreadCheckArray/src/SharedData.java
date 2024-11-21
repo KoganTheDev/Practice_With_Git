@@ -4,7 +4,8 @@ public class SharedData
 	private boolean [] winArray;
 	private boolean flag;
 	private final int b;
-	private String winning_thread; 
+	private String winningThread = null;
+	
 	public SharedData(int[] array, int b) {
 		
 		this.array = array;
@@ -38,11 +39,11 @@ public class SharedData
 
 	public void setFlag(boolean flag) {
 		this.flag = flag;
-		this.winning_thread=toString();
 	}
 	
-	public String getWinningThread() {
-		return this.winning_thread;
+	public String getWinningThread() { return winningThread;}
+	
+	public synchronized void setWinningThread(String winningThread) {
+		this.winningThread = winningThread;
 	}
-
 }
