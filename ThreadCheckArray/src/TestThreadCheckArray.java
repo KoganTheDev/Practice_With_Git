@@ -43,12 +43,23 @@ public class TestThreadCheckArray {
 				System.out.println("Sorry");
 				return;
 			}
-			
+			else {
+				
+				if(sd.getWinningThread().equals(thread1.getName())) {
+					System.out.println("thread1 wins");
+				}
+				
+				else {
+					System.out.println("thread2 wins");
+				}
+			}
 			Instant end = Instant.now(); // Take timestamp when finished running.
 			Duration timeElapsed = Duration.between(start, end); // Calculate time difference.
 			System.out.println("Time taken to calculate the result " + timeElapsed.toMillis() + " miliseconds.");
 			
 			System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().length);
+			
+			
 			System.out.print("I:    ");
 			for(int index = 0; index < sd.getArray().length ; index++)
 				System.out.print(index + "    ");
