@@ -1,4 +1,7 @@
 import java.util.Scanner;
+// Java libraries used for managing time.
+import java.time.Duration;
+import java.time.Instant;
 
 public class TestThreadCheckArray {
 	public static void main(String[] args) {
@@ -19,8 +22,13 @@ public class TestThreadCheckArray {
 			
 			thread1 = new Thread(new ThreadCheckArray(sd), "thread1");
 			thread2 = new Thread(new ThreadCheckArray(sd), "thread2");
+			
+			Instant start = Instant.now(); // Gives current time.
+			
 			thread1.start();
 			thread2.start();
+			
+			
 			try 
 			{
 				thread1.join();
@@ -35,6 +43,11 @@ public class TestThreadCheckArray {
 				System.out.println("Sorry");
 				return;
 			}
+			
+			Instant end = Instant.now(); // Take timestamp when finished running.
+			Duration timeElapsed = Duration.between(start, end); // Calculate time difference.
+			System.out.println("Time taken to calculate the result " + timeElapsed.toMillis() + " miliseconds.");
+			
 			System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().length);
 			System.out.print("I:    ");
 			for(int index = 0; index < sd.getArray().length ; index++)
